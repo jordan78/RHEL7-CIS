@@ -174,6 +174,7 @@
       dest: /etc/sysconfig/ntpd
       regexp: "^(#)?OPTIONS"
       line: "OPTIONS=\"-u ntp:ntp\""
+  ignore_errors: yes
 
 
 - name: "SCORED | 2.2.1.2 | PATCH | Ensure ntp is configured | modify /usr/lib/systemd/system/ntpd.service"
