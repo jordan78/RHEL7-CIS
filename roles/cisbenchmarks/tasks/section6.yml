@@ -90,15 +90,6 @@
   command: /bin/true
   changed_when: no
 
-
-- name: "SCORED | 6.2.1 | PATCH | Ensure password fields are not empty"
-  command: passwd -l {{ item }}
-  changed_when: no
-  failed_when: no
-  with_items: "{{ empty_password_accounts.stdout_lines }}"
-  when:
-      - empty_password_accounts.rc
-
 - name: "SCORED | 6.2.2 | PATCH | Ensure no legacy '+' entries exist in /etc/passwd"
   command: sed -i '/^+/ d' /etc/passwd
   changed_when: no

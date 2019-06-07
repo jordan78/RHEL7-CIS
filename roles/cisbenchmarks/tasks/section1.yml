@@ -32,12 +32,6 @@
       opts: "defaults,nodev,nosuid,noexec"
 
 
-- name: "SCORED | 1.1.22 | PATCH | Disable Automounting"
-  service:
-      name: autofs
-      enabled: no
-  ignore_errors: True
-
 - name: "NOTSCORED | 1.2.1 | PATCH | Ensure package manager repositories are configured"
   command: yum check-update
   register: yum_configured
@@ -67,12 +61,6 @@
       replace: "gpgcheck=1"
   with_items:
       - "{{ yum_repos.files }}"
-
-
-- name: "NOTSCORED | 1.2.3 | PATCH | Ensure GPG keys are configured"
-  command: gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-{{ ansible_distribution|lower }}-release
-  ignore_errors: True
-
 
 - name: "NOTSCORED | 1.2.4 | PATCH | Ensure Red Hat Network or Subscription Manager connection is configured"
   command: subscription-manager identity

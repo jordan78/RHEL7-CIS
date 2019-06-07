@@ -113,26 +113,6 @@
         when: time_stream_service.stat.exists
 
 
-- name: "SCORED | 2.1.6 | PATCH | Ensure tftp server is not enabled"
-  block:
-      - name: "SCORED | 2.1.6 | PATCH | Ensure tftp server is not enabled"
-        stat:
-            path: /etc/xinetd.d/tftp
-        register: tftp_service
-
-      - name: "SCORED | 2.1.6 | PATCH | Ensure tftp server is not enabled"
-        command: chkconfig tftp off
-        notify: restart xinetd
-        when: tftp_service.stat.exists and rhel7cis_tftp_server == false
-
-
-- name: "SCORED | 2.1.7 | PATCH | Ensure xinetd is not enabled"
-  service:
-      name: xinetd
-      state: stopped
-      enabled: no
-  ignore_errors: yes
-
 - name: "SCORED | 2.2.2 | PATCH | Ensure X Window System is not installed"
   yum:
       name: "{{item}}"
