@@ -12,7 +12,7 @@
          SCORED | 1.1.5 | PATCH | Ensure noexec option set on /tmp partition\n
          | drop custom tmp.mount"
   copy:
-      src: etc/systemd/system/tmp.mount
+      src: files/tmp.mount
       dest: /etc/systemd/system/tmp.mount
       owner: root
       group: root
