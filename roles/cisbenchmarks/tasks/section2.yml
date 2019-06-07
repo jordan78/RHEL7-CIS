@@ -131,8 +131,6 @@
       name: xinetd
       state: stopped
       enabled: no
-  when:
-      - xinetd_service_status.stdout == "loaded" and not rhel7cis_xinetd_required
 
 - name: "NOTSCORED | 2.2.1.1 | PATCH | Ensure time synchronization is in use - service install"
   yum:
