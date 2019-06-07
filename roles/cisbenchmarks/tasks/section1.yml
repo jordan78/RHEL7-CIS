@@ -36,7 +36,7 @@
   service:
       name: autofs
       enabled: no
-      ignore_errors: yes
+  ignore_errors: True
 
 - name: "NOTSCORED | 1.2.1 | PATCH | Ensure package manager repositories are configured"
   command: yum check-update
