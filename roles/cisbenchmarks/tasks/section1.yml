@@ -71,6 +71,7 @@
 
 - name: "NOTSCORED | 1.2.3 | PATCH | Ensure GPG keys are configured"
   command: gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-{{ ansible_distribution|lower }}-release
+  ignore_errors: True
 
 
 - name: "NOTSCORED | 1.2.4 | PATCH | Ensure Red Hat Network or Subscription Manager connection is configured"
