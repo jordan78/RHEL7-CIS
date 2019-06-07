@@ -131,6 +131,7 @@
       name: xinetd
       state: stopped
       enabled: no
+  ignore_errors: yes
 
 - name: "NOTSCORED | 2.2.1.1 | PATCH | Ensure time synchronization is in use - service install"
   yum:
